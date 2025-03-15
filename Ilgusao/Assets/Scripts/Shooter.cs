@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class Shooter : MonoBehaviour
 {
-    public Bullet bullet;
+    public PlayerBullet bullet;
     WaitForSeconds shootInterval;
     bool readyToShoot;
     void Start()
