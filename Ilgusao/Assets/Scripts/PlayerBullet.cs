@@ -3,6 +3,7 @@ using UnityEngine;
 public class PlayerBullet : MonoBehaviour
 {
     public GameObject ExplosionEffect;
+    public int Attack = 10;
     public float BulletSpeed = 10.0f;
 
     void Update()
@@ -19,14 +20,14 @@ public class PlayerBullet : MonoBehaviour
     {
         if (collision.CompareTag("Monster"))
         {
-            collision.gameObject.GetComponent<Monster>().Damaged(1);
+            collision.gameObject.GetComponent<Monster>().Damaged(Attack);
             GameObject effect = Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(effect, 1f);
         }
         if (collision.CompareTag("Boss"))
         {
-            // collision.gameObject.GetComponent<Boss>().Damaged(1);
+            // collision.gameObject.GetComponent<Boss>().Damaged(Attack);
             GameObject effect = Instantiate(ExplosionEffect, transform.position, Quaternion.identity);
             Destroy(gameObject);
             Destroy(effect, 1f);

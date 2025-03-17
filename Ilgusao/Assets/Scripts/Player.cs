@@ -7,8 +7,11 @@ public class Player : MonoBehaviour
     public float MoveSpeed = 5.0f;
     public List<PlayerBullet> Bullets; // 추후 4개 배열로 만들예정
     public Transform Pos = null;
+    public GameObject Lazer;
+    GameObject nowLazer;
     int bulletIndex;
     bool readyToShoot;
+    bool onLazerMode = false;
     WaitForSeconds shootInterval;
     Rigidbody2D _rb;
     Animator _anim;
@@ -51,6 +54,22 @@ public class Player : MonoBehaviour
         {
             StartCoroutine(Shoot());
         }
+
+        
+
+        if (Input.GetKey(KeyCode.Z) && !onLazerMode)
+        {
+            nowLazer = Instantiate(Lazer, transform.position, Quaternion.identity);
+            onLazerMode = true;
+        }
+
+        if (Input.GetKeyUp(KeyCode.Z) && onLazerMode)
+        {
+            onLazerMode = false;
+            Destroy(nowLazer);
+        }
+
+
 
         _rb.linearVelocity = Vector2.zero;
         

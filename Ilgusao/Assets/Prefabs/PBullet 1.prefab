@@ -176,6 +176,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   ExplosionEffect: {fileID: 7826307078969337590, guid: c5fca273606704195b8d74a2defe59d9, type: 3}
-  item: {fileID: 4568130345362394706, guid: b0ce5302381d94a009248b0bd91ec851, type: 3}
+  Attack: 30
   BulletSpeed: 10
-  index: 1

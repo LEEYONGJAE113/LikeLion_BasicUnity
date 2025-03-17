@@ -11,7 +11,20 @@ public class Spawner : MonoBehaviour
     bool[] swi = new bool[2];
 
     public List<GameObject> monsters;
+    public GameObject Boss;
 
+    [SerializeField]
+    GameObject textBossWarning;
+
+    void Awake()
+    {
+        textBossWarning.SetActive(false);
+
+        foreach (var monster in monsters)
+        {
+            PoolManager.Instance.CreatePool(monster, 10);
+        }
+    }
 
     void Start()
     {
@@ -28,7 +41,9 @@ public class Spawner : MonoBehaviour
             float x = Random.Range(SpawnPointLeft, SpawnPointRight);
             Vector2 randVec = new Vector2(x, transform.position.y);
 
-            Instantiate(monsters[0], randVec, Quaternion.identity);
+            // Instantiate(monsters[0], randVec, Quaternion.identity);
+            GameObject monster = PoolManager.Instance.Get(monsters[0]);
+            monster.transform.position = randVec;
         }
     }
     void Stop()
@@ -37,6 +52,7 @@ public class Spawner : MonoBehaviour
         StopCoroutine("RandomSpawn1");
         swi[1] = true;
         StartCoroutine("RandomSpawn2");
+        Invoke("Stop2", SpawnStopTime+20);
     }
 
     IEnumerator RandomSpawn2()
@@ -49,5 +65,15 @@ public class Spawner : MonoBehaviour
 
             Instantiate(monsters[1], randVec, Quaternion.identity);
         }
+    }
+
+    void Stop2()
+    {
+        swi[1] = false;
+        StopCoroutine("RandomSpawn2");
+        textBossWarning.SetActive(true);
+
+        Vector3 pos = new Vector3(0, transform.position.y-1.6f, 0);
+        Instantiate(Boss, pos, Quaternion.identity);
     }
 }

@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Monster : MonoBehaviour
 {
+    public int Hp = 100;
     public float Speed = 1f;
     public float Delay = 1f;
     public Transform Ms1;
@@ -30,12 +31,20 @@ public class Monster : MonoBehaviour
     private void OnBecameInvisible()
     {
         Destroy(gameObject);
+        // PoolManager.Instance.Return(gameObject);
     }
 
     public void Damaged(int attack)
     {
-        DropRandomItem();
-        Destroy(gameObject);
+        Hp -= attack;
+
+        if (Hp <= 0)
+        {
+            DropRandomItem();
+            Destroy(gameObject);
+            // PoolManager.Instance.Return(gameObject);
+        }
+
     }
 
     void DropRandomItem()

@@ -5,6 +5,7 @@ public class Boss : MonoBehaviour
 {
     int flag = 1;
     int speed = 2;
+    bool isFlip = false;
 
     public GameObject mb;
     public GameObject mb2;
@@ -14,6 +15,7 @@ public class Boss : MonoBehaviour
     {
         StartCoroutine(BossMissile());
         StartCoroutine(CircleFire());
+        Invoke("Hide", 1.5f);
     }
 
     IEnumerator BossMissile()
@@ -67,12 +69,26 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if(transform.position.x >= 1 || transform.position.x <= -1)
+        if(!isFlip && (transform.position.x >= 1 || transform.position.x <= -1))
         {
-            flag *= -1;
+            StartCoroutine(FlagRoutine());
         }
 
         transform.Translate(flag * speed * Time.deltaTime, 0, 0);
     }
+
+    IEnumerator FlagRoutine()
+    {
+        isFlip = true;
+        flag *= -1;
+        yield return new WaitForSeconds(0.1f);
+        isFlip = false;
+    }
+
+    void Hide()
+    {
+        GameObject.Find("TextBossWarning").SetActive(false);
+    }
+
 
 }
