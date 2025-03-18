@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -12,12 +13,15 @@ public class Player : MonoBehaviour
     int bulletIndex;
     bool readyToShoot;
     bool onLazerMode = false;
+    public float gValue = 0f;
+    public Image Gage;
     WaitForSeconds shootInterval;
     Rigidbody2D _rb;
     Animator _anim;
 
     [SerializeField]
     private GameObject _powerUp;
+
     void Start()
     {
         _anim = GetComponent<Animator>(); 
@@ -55,18 +59,41 @@ public class Player : MonoBehaviour
             StartCoroutine(Shoot());
         }
 
-        
 
-        if (Input.GetKey(KeyCode.Z) && !onLazerMode)
+        // if (Input.GetKey(KeyCode.Z) && !onLazerMode)
+        // {
+        //     nowLazer = Instantiate(Lazer, transform.position, Quaternion.identity);
+        //     onLazerMode = true;
+        // }
+
+        // if (Input.GetKeyUp(KeyCode.Z) && onLazerMode)
+        // {
+        //     onLazerMode = false;
+        //     Destroy(nowLazer?? null);
+        // }
+
+        if(Input.GetKey(KeyCode.Z))
         {
-            nowLazer = Instantiate(Lazer, transform.position, Quaternion.identity);
-            onLazerMode = true;
+            gValue += Time.deltaTime;
+            Gage.fillAmount = gValue;
+
+            if(gValue >=1)
+            {
+                GameObject go = Instantiate(Lazer, transform.position, Quaternion.identity);
+                Destroy(go, 3);
+                gValue = 0;
+            }
         }
-
-        if (Input.GetKeyUp(KeyCode.Z) && onLazerMode)
+        else
         {
-            onLazerMode = false;
-            Destroy(nowLazer);
+            gValue -= Time.deltaTime;
+
+            if(gValue <=0)
+            {
+                gValue = 0;
+            }
+
+
         }
 
 
