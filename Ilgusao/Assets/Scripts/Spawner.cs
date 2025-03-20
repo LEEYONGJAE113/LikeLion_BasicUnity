@@ -52,7 +52,7 @@ public class Spawner : MonoBehaviour
         StopCoroutine("RandomSpawn1");
         swi[1] = true;
         StartCoroutine("RandomSpawn2");
-        Invoke("Stop2", SpawnStopTime+20);
+        Invoke("Stop2", SpawnStopTime);
     }
 
     IEnumerator RandomSpawn2()
@@ -72,8 +72,23 @@ public class Spawner : MonoBehaviour
         swi[1] = false;
         StopCoroutine("RandomSpawn2");
         textBossWarning.SetActive(true);
+        CameraShake.Instance.CameraShakeShow();
+        StartCoroutine("Shake");
 
-        Vector3 pos = new Vector3(0, transform.position.y-1.6f, 0);
+        Vector3 pos = new Vector3(0, transform.position.y - 1.6f, 0);
         Instantiate(Boss, pos, Quaternion.identity);
+    }
+
+
+
+    IEnumerator Shake()
+    {
+        yield return new WaitForSeconds(0.2f);
+        CameraShake.Instance.CameraShakeShow();
+        yield return new WaitForSeconds(0.2f);
+        CameraShake.Instance.CameraShakeShow();
+        yield return new WaitForSeconds(0.2f);
+        CameraShake.Instance.CameraShakeShow();
+
     }
 }

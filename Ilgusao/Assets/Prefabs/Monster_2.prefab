@@ -44,6 +44,8 @@ GameObject:
   - component: {fileID: 3502031365221518588}
   - component: {fileID: 8487918234029542974}
   - component: {fileID: 5239656744689523722}
+  - component: {fileID: -4552070059996435025}
+  - component: {fileID: -5628809510682439104}
   m_Layer: 0
   m_Name: Monster_2
   m_TagString: Monster
@@ -203,12 +205,78 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 463ababd2f26443939bf3bf2519ee702, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Hp: 100
   Speed: 1
   Delay: 1
   Ms1: {fileID: 3401832099648763685}
   Ms2: {fileID: 6435769886870215245}
   Bullet: {fileID: 4171838571427601014, guid: 525871f3714404f71ac0a2a28173813a, type: 3}
   item: {fileID: 4568130345362394706, guid: b0ce5302381d94a009248b0bd91ec851, type: 3}
+--- !u!114 &-4552070059996435025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3390165991269300075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b3cf45f3cb2dee4d946b404f7bd18d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &-5628809510682439104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3390165991269300075}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 180ecf9b41d478f468eb3e9083753217, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  ImpulseDefinition:
+    ImpulseChannel: 1
+    ImpulseShape: 2
+    CustomImpulseShape:
+      serializedVersion: 2
+      m_Curve: []
+      m_PreInfinity: 2
+      m_PostInfinity: 2
+      m_RotationOrder: 4
+    ImpulseDuration: 0.2
+    ImpulseType: 0
+    DissipationRate: 0.25
+    RawSignal: {fileID: 0}
+    AmplitudeGain: 1
+    FrequencyGain: 1
+    RepeatMode: 0
+    Randomize: 1
+    TimeEnvelope:
+      AttackShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      DecayShape:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 2
+        m_PostInfinity: 2
+        m_RotationOrder: 4
+      AttackTime: 0
+      SustainTime: 0.2
+      DecayTime: 0.7
+      ScaleWithImpact: 1
+      HoldForever: 0
+    ImpactRadius: 100
+    DirectionMode: 0
+    DissipationMode: 2
+    DissipationDistance: 100
+    PropagationSpeed: 343
+  DefaultVelocity: {x: 0.05, y: 0.05, z: 0}
 --- !u!1 &5255791242384666839
 GameObject:
   m_ObjectHideFlags: 0

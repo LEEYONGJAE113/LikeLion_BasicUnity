@@ -69,7 +69,7 @@ public class Boss : MonoBehaviour
 
     void Update()
     {
-        if(!isFlip && (transform.position.x >= 1 || transform.position.x <= -1))
+        if (!isFlip && (transform.position.x >= 1 || transform.position.x <= -1))
         {
             StartCoroutine(FlagRoutine());
         }

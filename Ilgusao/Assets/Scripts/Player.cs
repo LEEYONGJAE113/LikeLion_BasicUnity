@@ -60,41 +60,41 @@ public class Player : MonoBehaviour
         }
 
 
-        // if (Input.GetKey(KeyCode.Z) && !onLazerMode)
-        // {
-        //     nowLazer = Instantiate(Lazer, transform.position, Quaternion.identity);
-        //     onLazerMode = true;
-        // }
-
-        // if (Input.GetKeyUp(KeyCode.Z) && onLazerMode)
-        // {
-        //     onLazerMode = false;
-        //     Destroy(nowLazer?? null);
-        // }
-
-        if(Input.GetKey(KeyCode.Z))
+        if (Input.GetKey(KeyCode.Z) && !onLazerMode)
         {
-            gValue += Time.deltaTime;
-            Gage.fillAmount = gValue;
-
-            if(gValue >=1)
-            {
-                GameObject go = Instantiate(Lazer, transform.position, Quaternion.identity);
-                Destroy(go, 3);
-                gValue = 0;
-            }
+            nowLazer = Instantiate(Lazer, transform.position, Quaternion.identity);
+            onLazerMode = true;
         }
-        else
+
+        if (Input.GetKeyUp(KeyCode.Z) && onLazerMode)
         {
-            gValue -= Time.deltaTime;
-
-            if(gValue <=0)
-            {
-                gValue = 0;
-            }
-
-
+            onLazerMode = false;
+            Destroy(nowLazer?? null);
         }
+
+        // if(Input.GetKey(KeyCode.Z))
+        // {
+        //     gValue += Time.deltaTime;
+        //     Gage.fillAmount = gValue;
+
+        //     if(gValue >=1)
+        //     {
+        //         GameObject go = Instantiate(Lazer, transform.position, Quaternion.identity);
+        //         Destroy(go, 3);
+        //         gValue = 0;
+        //     }
+        // }
+        // else
+        // {
+        //     gValue -= Time.deltaTime;
+
+        //     if(gValue <=0)
+        //     {
+        //         gValue = 0;
+        //     }
+
+
+        // }
 
 
 

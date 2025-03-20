@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class Monster : MonoBehaviour
@@ -53,4 +54,6 @@ public class Monster : MonoBehaviour
         if (randInt != 0) { return; }
         Instantiate(item, transform.position, Quaternion.identity);
     }
+
+
 }
