@@ -97,10 +97,45 @@ AnimationClip:
   m_HasGenericRootTransform: 0
   m_HasMotionFloatCurves: 0
   m_Events:
+  - time: 0
+    functionName: LandingDust
+    data: 
+    objectReferenceParameter: {fileID: 2209376324849755547, guid: 4417a840621b3794f8ccdf1005f7adf5, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
   - time: 0.083333336
     functionName: RunShadow
     data: 
     objectReferenceParameter: {fileID: 0}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.16666667
+    functionName: LandingDust
+    data: 
+    objectReferenceParameter: {fileID: 2209376324849755547, guid: 4417a840621b3794f8ccdf1005f7adf5, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.33333334
+    functionName: LandingDust
+    data: 
+    objectReferenceParameter: {fileID: 2209376324849755547, guid: 4417a840621b3794f8ccdf1005f7adf5, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.5
+    functionName: LandingDust
+    data: 
+    objectReferenceParameter: {fileID: 2209376324849755547, guid: 4417a840621b3794f8ccdf1005f7adf5, type: 3}
+    floatParameter: 0
+    intParameter: 0
+    messageOptions: 0
+  - time: 0.6666667
+    functionName: LandingDust
+    data: 
+    objectReferenceParameter: {fileID: 2209376324849755547, guid: 4417a840621b3794f8ccdf1005f7adf5, type: 3}
     floatParameter: 0
     intParameter: 0
     messageOptions: 0
